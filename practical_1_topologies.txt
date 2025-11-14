@@ -1,0 +1,211 @@
+================================================================================
+CN PRACTICAL 1: DEMONSTRATE DIFFERENT TYPES OF TOPOLOGIES AND TRANSMISSION MEDIA
+================================================================================
+
+OBJECTIVE:
+Demonstrate Star, Ring, Bus, and Mesh topologies using Cisco Packet Tracer
+and understand different types of transmission media.
+
+================================================================================
+STAR TOPOLOGY - STEP BY STEP INSTRUCTIONS
+================================================================================
+
+1. Open Cisco Packet Tracer
+2. Select a Switch (2960 model) from the Network Devices > Switches section
+3. Place the switch in the center of the workspace
+4. Select PC devices from End Devices section
+5. Add 4-5 PCs around the switch
+6. Connect each PC to the switch using Copper Straight-Through cables:
+   - Click on cable icon (lightning bolt)
+   - Select Copper Straight-Through
+   - Click on PC, select FastEthernet0
+   - Click on Switch, select any available FastEthernet port
+7. Configure IP addresses on each PC:
+   - Click on PC > Desktop > IP Configuration
+   - PC1: 192.168.1.1, Subnet: 255.255.255.0
+   - PC2: 192.168.1.2, Subnet: 255.255.255.0
+   - PC3: 192.168.1.3, Subnet: 255.255.255.0
+   - PC4: 192.168.1.4, Subnet: 255.255.255.0
+8. Test connectivity: Click on PC1 > Desktop > Command Prompt
+9. Type: ping 192.168.1.2
+10. Observe green triangles indicating successful connection
+
+================================================================================
+RING TOPOLOGY - STEP BY STEP INSTRUCTIONS
+================================================================================
+
+1. Add 4-5 PCs in a circular arrangement
+2. Connect PCs in a ring formation using Copper Cross-Over cables:
+   - PC1 FastEthernet0 to PC2 FastEthernet0
+   - PC2 FastEthernet0 to PC3 FastEthernet0
+   - PC3 FastEthernet0 to PC4 FastEthernet0
+   - PC4 FastEthernet0 back to PC1 FastEthernet0
+3. Configure IP addresses:
+   - PC1: 192.168.2.1, Subnet: 255.255.255.0
+   - PC2: 192.168.2.2, Subnet: 255.255.255.0
+   - PC3: 192.168.2.3, Subnet: 255.255.255.0
+   - PC4: 192.168.2.4, Subnet: 255.255.255.0
+4. Note: In Packet Tracer, true ring topology is limited; this demonstrates
+   the physical arrangement
+
+================================================================================
+BUS TOPOLOGY - STEP BY STEP INSTRUCTIONS
+================================================================================
+
+1. Add a Hub from Network Devices (or use a Switch)
+2. Arrange 4-5 PCs in a horizontal line
+3. Connect all PCs to the central hub using Copper Straight-Through cables
+4. This simulates a bus topology where all devices share the same backbone
+5. Configure IP addresses:
+   - PC1: 192.168.3.1, Subnet: 255.255.255.0
+   - PC2: 192.168.3.2, Subnet: 255.255.255.0
+   - PC3: 192.168.3.3, Subnet: 255.255.255.0
+   - PC4: 192.168.3.4, Subnet: 255.255.255.0
+6. Test connectivity using ping command
+7. Note: Modern implementations use switches, but the logical bus concept remains
+
+================================================================================
+MESH TOPOLOGY - STEP BY STEP INSTRUCTIONS
+================================================================================
+
+1. Add 4 PCs in the workspace
+2. Connect EVERY PC to EVERY OTHER PC using Copper Cross-Over cables:
+   - PC1 to PC2, PC1 to PC3, PC1 to PC4
+   - PC2 to PC3, PC2 to PC4
+   - PC3 to PC4
+3. Total connections = n(n-1)/2 where n=4, so 6 connections
+4. Configure IP addresses:
+   - PC1: 192.168.4.1, Subnet: 255.255.255.0
+   - PC2: 192.168.4.2, Subnet: 255.255.255.0
+   - PC3: 192.168.4.3, Subnet: 255.255.255.0
+   - PC4: 192.168.4.4, Subnet: 255.255.255.0
+5. Test connectivity from any PC to any other PC
+6. Note: Each device has multiple network adapters in full mesh
+
+================================================================================
+TRANSMISSION MEDIA DEMONSTRATION
+================================================================================
+
+COPPER CABLES:
+1. Straight-Through Cable: Used for connecting different devices
+   (PC to Switch, Switch to Router)
+2. Cross-Over Cable: Used for connecting similar devices
+   (PC to PC, Switch to Switch)
+3. Console Cable: Used for configuration (PC to Router/Switch console port)
+
+FIBER OPTIC CABLES:
+1. Add routers to the workspace
+2. Connect routers using Fiber optic cables
+3. Click on Router > Physical tab
+4. Turn off the router
+5. Add a fiber module (like GLC-LH-SMD)
+6. Turn on the router
+7. Connect using fiber cable between routers
+
+WIRELESS MEDIA:
+1. Add a Wireless Router or Access Point
+2. Add Laptop devices with wireless capability
+3. Configure SSID and security settings on Access Point
+4. Connect laptops wirelessly
+
+================================================================================
+COMPARISON TABLE
+================================================================================
+
+Topology    | Advantages              | Disadvantages           | Use Case
+------------|-------------------------|-------------------------|------------------
+Star        | Easy to manage          | Single point failure    | Office LANs
+            | Easy troubleshooting    | More cable required     |
+------------|-------------------------|-------------------------|------------------
+Ring        | Equal access            | Failure affects all     | Token Ring
+            | Predictable performance | Difficult to modify     |
+------------|-------------------------|-------------------------|------------------
+Bus         | Easy to implement       | Limited cable length    | Small networks
+            | Less cable needed       | Performance degrades    |
+------------|-------------------------|-------------------------|------------------
+Mesh        | High redundancy         | Expensive               | Critical systems
+            | Multiple paths          | Complex installation    | WANs
+------------|-------------------------|-------------------------|------------------
+
+================================================================================
+10 IMPORTANT VIVA QUESTIONS
+================================================================================
+
+Q1. What is network topology?
+A: Network topology refers to the physical or logical arrangement of network
+   devices and the interconnections between them. It defines how devices are
+   connected and how data flows in the network.
+
+Q2. What is the difference between physical and logical topology?
+A: Physical topology is the actual physical arrangement of cables and devices.
+   Logical topology is how data flows in the network regardless of physical
+   arrangement. Example: A network may be physically star but logically bus.
+
+Q3. Why do we use a switch in star topology instead of a hub?
+A: Switches provide better performance by sending data only to the intended
+   recipient (unicast), while hubs broadcast to all devices. Switches also
+   support full-duplex communication and prevent collisions.
+
+Q4. What is a single point of failure in star topology?
+A: The central switch/hub is the single point of failure. If it fails, the
+   entire network becomes non-functional. However, if one PC fails, others
+   remain connected.
+
+Q5. What cable types are used in Ethernet networks?
+A: - Straight-Through: Connect different devices (PC-Switch, Switch-Router)
+   - Cross-Over: Connect similar devices (PC-PC, Switch-Switch, Router-Router)
+   - Console/Rollover: For device configuration
+   - Fiber Optic: For long-distance, high-speed connections
+
+Q6. What is the difference between UTP and STP cables?
+A: UTP (Unshielded Twisted Pair): No shielding, cheaper, susceptible to EMI
+   STP (Shielded Twisted Pair): Has metallic shielding, expensive, better
+   protection against electromagnetic interference
+
+Q7. Why is mesh topology rarely used in LANs?
+A: Mesh topology requires n(n-1)/2 connections for n devices, making it
+   extremely expensive and complex to implement. It's mainly used in WANs
+   and critical systems where redundancy is essential.
+
+Q8. What is the maximum cable length for Cat5e/Cat6 Ethernet?
+A: The maximum cable length for twisted pair Ethernet (Cat5e/Cat6) is 100
+   meters (328 feet) for copper cables. Beyond this, signal degradation occurs.
+
+Q9. What are the advantages of fiber optic cables over copper?
+A: - Higher bandwidth and speed (up to 100 Gbps and beyond)
+   - Longer distance (up to 40-100 km)
+   - Immune to electromagnetic interference
+   - More secure (difficult to tap)
+   - Lighter weight
+   Disadvantages: More expensive, fragile, requires special equipment
+
+Q10. What is collision domain and broadcast domain?
+A: Collision Domain: A network segment where data packets can collide. Hubs
+    create one collision domain; switches separate collision domains.
+    Broadcast Domain: A network segment where a broadcast frame is propagated.
+    Switches forward broadcasts; routers separate broadcast domains.
+
+================================================================================
+PRACTICAL TIPS
+================================================================================
+
+1. Always check cable connections (green triangles = good connection)
+2. Ensure IP addresses are in the same subnet for connectivity
+3. Use Simulation mode to see packet flow
+4. Save your work regularly
+5. Label devices for better organization
+6. Use ping command to verify connectivity
+7. Check port status lights on devices
+
+================================================================================
+CONCLUSION
+================================================================================
+
+This practical demonstrates the fundamental network topologies and helps
+understand how different physical arrangements affect network performance,
+reliability, and cost. Each topology has its specific use cases based on
+requirements like cost, reliability, and scalability.
+
+================================================================================
+END OF PRACTICAL 1
+================================================================================
