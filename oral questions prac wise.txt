@@ -1,0 +1,563 @@
+Practical 1 — Topologies & Transmission Media (15 Viva Questions)
+
+What is a network topology?
+It is the physical or logical layout of how devices are connected in a network.
+
+Differentiate physical and logical topology.
+Physical shows actual cable layout; logical shows how data flows.
+
+Explain Bus topology.
+Single backbone cable; all nodes share it.
+
+Explain Star topology.
+All devices connect to a central hub/switch.
+
+Explain Mesh topology.
+Every device connects to every other; provides redundancy.
+
+Define Hybrid topology.
+Combination of two or more topologies.
+
+What is guided transmission media?
+Data travels through cables (Twisted pair, Coaxial, Fiber).
+
+What is unguided media?
+Wireless communication through air (Radio, Microwave, Infrared).
+
+What is twisted pair cable?
+Two copper wires twisted to reduce interference.
+
+What is coaxial cable?
+Copper core with shielding; used for cable TV networks.
+
+What is fiber optic cable?
+Uses light signals; very high bandwidth.
+
+What are radio waves?
+Wireless medium; omnidirectional; used in broadcast.
+
+What are microwaves?
+Line-of-sight wireless communication; used for mobile networks.
+
+What are infrared waves?
+Short-range wireless; cannot pass through obstacles.
+
+Why is Packet Tracer used in topologies?
+To simulate networks without real hardware.
+
+✅ Practical 2 — Wired & Wireless LAN, WAN (15 Viva Questions)
+
+What is a LAN?
+Small geographic network like office or home.
+
+What is a wireless LAN?
+LAN using Wi-Fi instead of cables.
+
+What is WAN?
+Wide Area Network covering large areas—cities, countries.
+
+Difference between LAN and WAN.
+LAN = local & fast; WAN = large & slower.
+
+What is an Access Point?
+Device allowing wireless clients to join wired network.
+
+What is a router?
+Forwards packets between networks using IP addresses.
+
+What is SSID?
+The Wi-Fi name broadcast by access point.
+
+What is wireless encryption?
+Methods like WPA2/WPA3 to secure Wi-Fi.
+
+What is a wired LAN advantage?
+High speed and stable connectivity.
+
+What is a wireless LAN advantage?
+Mobility and easy installation.
+
+What is DHCP in WLAN?
+Automatically assigns IP addresses to Wi-Fi devices.
+
+What are wireless interferences?
+Disturbances caused by microwaves, walls, Bluetooth.
+
+Why do we configure channel numbers?
+To avoid frequency overlap.
+
+Why do we need WAN in this practical?
+To connect wired LAN and wireless LAN networks.
+
+Explain packet flow from wired LAN to wireless LAN.
+Wired PC → Switch → Router → Access Point → Wireless PC.
+
+✅ Practical 3 — Router Configuration using RIP/OSPF/BGP (15 Viva Questions)
+
+What is a router?
+A layer-3 device that forwards packets using IP addresses.
+
+What is a routing protocol?
+Rules for routers to learn and share routing information.
+
+Explain RIP.
+Distance-vector protocol; uses hop count; max 15 hops.
+
+Explain OSPF.
+Link-state protocol; faster; uses Dijkstra algorithm.
+
+Explain BGP.
+Path vector protocol; used for inter-ISP routing on the Internet.
+
+Difference between RIP and OSPF.
+RIP uses hop count; OSPF uses link cost.
+
+What is administrative distance?
+Trustworthiness measure of routing protocols.
+
+What is hop count?
+Number of routers a packet crosses.
+
+What is a routing table?
+List of networks known by the router.
+
+What is static routing?
+Manually configured routes.
+
+What is dynamic routing?
+Routes learned automatically via protocols like RIP/OSPF.
+
+What is subnet ID?
+Network portion of IP used for routing.
+
+Why is RIP slow?
+Periodic updates every 30 seconds.
+
+What is route convergence?
+Time taken for routers to update consistent routes.
+
+Why is BGP important?
+It controls internet-wide routing across ISPs.
+
+✅ Practical 4 — Subnetting & Subnet Mask (15 Viva Questions)
+
+What is subnetting?
+Dividing a network into smaller subnetworks.
+
+Why subnet a network?
+Better management, security, reduced broadcast.
+
+What is a subnet mask?
+Identifies network vs host portion of IP.
+
+What is CIDR?
+Classless addressing using slash notation (e.g., /24).
+
+What is network ID?
+First address; identifies a subnet.
+
+What is broadcast ID?
+Last address; used to contact all devices in subnet.
+
+What are valid host addresses?
+Addresses available for assignment.
+
+Explain Class A IP range.
+1–126; default mask 255.0.0.0.
+
+Explain Class B IP range.
+128–191; default mask 255.255.0.0.
+
+Explain Class C IP range.
+192–223; default mask 255.255.255.0.
+
+What is block size?
+Total addresses per subnet.
+
+What is borrowing bits?
+Taking host bits to create more subnets.
+
+Difference between classful and classless addressing.
+Classful has fixed mask; classless is flexible.
+
+What is VLSM?
+Variable Length Subnet Masking — different masks in same network.
+
+Why avoid large broadcast domains?
+They increase unnecessary traffic.
+
+✅ Practical 5 — Socket Programming: TCP & UDP (15 Viva Questions)
+
+What is socket programming?
+Enables communication between two devices using sockets.
+
+What is a socket?
+Endpoint of communication combining IP + Port.
+
+Difference: TCP vs UDP.
+TCP reliable & connection-oriented; UDP fast & connectionless.
+
+What is a client?
+Initiates request to server.
+
+What is a server?
+Listens and responds to client.
+
+Explain TCP handshake.
+3-way handshake using SYN, SYN-ACK, ACK.
+
+Explain UDP checksum.
+Checks for errors but does not retransmit.
+
+What is port number?
+Identifies application on host (e.g., 80, 21).
+
+What is send() and recv()?
+TCP APIs for data transmission.
+
+What is sendto() and recvfrom()?
+UDP APIs with address info.
+
+What is bind()?
+Assigns IP/Port to a socket.
+
+What is listen()?
+Puts server in passive mode.
+
+What is accept()?
+Accepts client connection (TCP).
+
+What is connection-oriented service?
+Requires virtual connection before data transfer.
+
+What is datagram?
+A UDP packet sent independently.
+
+✅ Practical 6 — TCP Socket: Hello & File Transfer (15 Viva Questions)
+
+Why use TCP for file transfer?
+Provides reliable delivery.
+
+What is stream-oriented communication?
+Continuous flow of bytes (TCP).
+
+What is a file descriptor?
+Numeric ID representing an open file/socket.
+
+How does TCP ensure reliability?
+Using acknowledgements and retransmissions.
+
+What is segmentation?
+Breaking data into TCP segments.
+
+What is flow control?
+Prevents sender from overwhelming receiver.
+
+What is congestion control?
+Adjusts sending rate when network is congested.
+
+What is MSS?
+Maximum Segment Size.
+
+What is MTU?
+Maximum transmission unit of network.
+
+What is send buffer?
+Stores outgoing TCP data.
+
+What is receive buffer?
+Stores incoming TCP data.
+
+Difference between telnet and TCP app.
+Telnet is a remote login service using TCP.
+
+What is graceful connection termination?
+FIN–ACK between client and server.
+
+What is socket timeout?
+Maximum wait time for response.
+
+What is file transfer flow?
+Read file → Send bytes → Save at receiver.
+
+✅ Practical 7 — UDP File Transfer (15 Viva Questions)
+
+Why use UDP for file transfer?
+When speed is more important than reliability.
+
+Why does UDP not guarantee delivery?
+It has no retransmission mechanism.
+
+Explain UDP header.
+Contains source port, destination port, length, checksum.
+
+Why does UDP support broadcasting?
+It is connectionless.
+
+Explain checksum in UDP.
+Ensures data integrity but does not request resend.
+
+What is message boundary in UDP?
+Each datagram is separate; no merging like TCP.
+
+What is application-level reliability?
+App must implement acknowledgements manually.
+
+What is datagram size?
+Max around 65 KB.
+
+What is packet loss?
+Dropping packets in network due to congestion.
+
+Why UDP suitable for video/audio?
+Fast delivery, slight loss is tolerable.
+
+What is fragmentation?
+Breaking large UDP packets into smaller IP packets.
+
+What is multiplexing?
+Multiple apps using UDP via port numbers.
+
+What is demultiplexing?
+Delivering packets to correct app using port.
+
+Why include pseudo-header in UDP checksum?
+To detect wrong-destination delivery.
+
+What happens if UDP packet arrives corrupted?
+It is silently dropped.
+
+✅ Practical 8 — Wireshark: TCP & HTTP Capture (15 Viva Questions)
+
+What is Wireshark?
+A packet capture and analysis tool.
+
+What is HTTP?
+Application-layer protocol for web data; uses port 80.
+
+Explain HTTP request.
+Contains method, URL, headers.
+
+Explain HTTP response.
+Contains status code, headers, body.
+
+What is TCP?
+Reliable transport protocol.
+
+What is PSH flag?
+Push flag instructing immediate delivery.
+
+What is SYN flag?
+Used for TCP connection start.
+
+What is RST flag?
+Reset connection.
+
+What is a display filter?
+Filter to show specific packets (e.g., tcp.port==80).
+
+What is 3-way handshake?
+SYN → SYN-ACK → ACK.
+
+What are HTTP methods?
+GET, POST, PUT, DELETE.
+
+What are HTTP status codes?
+200 OK, 404 Not Found, 500 Server Error.
+
+Why capture Facebook traffic?
+To analyze real-world HTTP/TCP flows.
+
+What is packet timestamp?
+Time when Wireshark captured the packet.
+
+Difference between capture filter and display filter.
+Capture = before capture; display = after capture.
+
+✅ Practical 9 — HTTP vs HTTPS vs FTP (15 Viva Questions)
+
+What is HTTPS?
+Secure version of HTTP using SSL/TLS; port 443.
+
+Difference HTTP vs HTTPS.
+HTTP is plain text; HTTPS is encrypted.
+
+What is SSL/TLS?
+Security layer encrypting communication.
+
+What is FTP?
+File Transfer Protocol using ports 20/21.
+
+Difference FTP vs HTTP.
+FTP transfers files; HTTP serves web content.
+
+What is authentication in FTP?
+Username/password login.
+
+How does Packet Tracer simulate FTP?
+Using server and PC with built-in FTP client.
+
+What is encryption?
+Converting plaintext to unreadable ciphertext.
+
+Why HTTP is insecure?
+Data travels in plaintext.
+
+What is SSL handshake?
+Process negotiating keys for encryption.
+
+What is certificate authority (CA)?
+Entity that issues security certificates.
+
+What is FTP put command?
+Uploads a file to server.
+
+What is FTP get command?
+Downloads a file.
+
+What is latency?
+Delay in transmission.
+
+Why HTTPS is slower than HTTP?
+Due to encryption overhead.
+
+✅ Practical 10 — SSL Protocol Study (15 Viva Questions)
+
+What is SSL?
+Secure Sockets Layer; encrypts communication.
+
+What is TLS?
+Successor to SSL; more secure.
+
+Why was SSL replaced?
+Old versions had vulnerabilities.
+
+What is SSL handshake?
+Key exchange + authentication.
+
+What is public key?
+Used to encrypt data.
+
+What is private key?
+Used to decrypt data.
+
+What is digital certificate?
+Verifies server identity.
+
+What is HTTPS?
+HTTP + SSL/TLS encryption.
+
+What is symmetric encryption?
+Uses one key for both encrypt & decrypt.
+
+What is asymmetric encryption?
+Uses key pair (public/private).
+
+What is certificate validation?
+Browser checks certificate authenticity.
+
+What is Wireshark SSL filter?
+Example: tls or ssl.handshake.
+
+What is encryption suite?
+Algorithm set used in TLS handshake.
+
+What is man-in-the-middle attack?
+Attacker intercepts communication.
+
+Why SSL protects online banking?
+Ensures confidentiality & integrity.
+
+✅ Practical 11 — DHCP Server Configuration (15 Viva Questions)
+
+What is DHCP?
+Dynamic Host Configuration Protocol assigning IPs automatically.
+
+What is a scope?
+IP range DHCP uses for assignment.
+
+What is a DHCP lease?
+Time a client can use assigned IP.
+
+What is a default gateway?
+Router address used for internet access.
+
+What is the purpose of DHCP server?
+Eliminates manual IP configuration.
+
+What is IP reservation?
+Assigning fixed IP to specific MAC.
+
+What is DHCPDISCOVER?
+Client broadcasts to find DHCP server.
+
+What is DHCPOFFER?
+Server offers IP.
+
+What is DHCPREQUEST?
+Client requests chosen IP.
+
+What is DHCPACK?
+Server confirms IP assignment.
+
+Why authorize DHCP in Windows?
+Prevents rogue DHCP servers.
+
+What is DNS option in DHCP?
+DHCP can provide DNS server address.
+
+What is subnet mask provided by DHCP?
+Defines network size.
+
+What is IP conflict?
+Two devices have same IP.
+
+Why exclude addresses in DHCP?
+For devices with static IPs.
+
+✅ Practical 12 — DNS Lookup Program (15 Viva Questions)
+
+What is DNS?
+Domain Name System maps names ↔ IPs.
+
+Why DNS needed?
+Humans remember names; computers use IPs.
+
+What is forward lookup?
+Name → IP mapping.
+
+What is reverse lookup?
+IP → Name mapping.
+
+What is a DNS server?
+Stores domain records.
+
+What is a resolver?
+Client program querying DNS.
+
+What is root server?
+Top-level DNS server.
+
+What is TLD server?
+For domain extensions like .com, .org.
+
+What is authoritative DNS server?
+Stores actual domain records.
+
+What is caching in DNS?
+Temporarily storing answers to speed lookup.
+
+What is A record?
+Name → IPv4 address mapping.
+
+What is AAAA record?
+Name → IPv6 address.
+
+What is PTR record?
+Reverse lookup record.
+
+What is DNS query?
+Request for domain/IP.
+
+Why DNS uses UDP port 53?
+Faster for small queries

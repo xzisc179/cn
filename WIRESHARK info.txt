@@ -1,0 +1,8 @@
+1.FACEBOOK: tcp && ip.addr == 163.70.144.35 (Facebook id)
+	    ping facebook.com
+2.panda : tcp.port == 443 && ip.addr == 217.174.153.53  
+	  ping techpanda.org
+
+
+3.amazon
+ tcp.stream eq 20 && ssl

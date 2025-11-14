@@ -1,0 +1,53 @@
+﻿Client:
+import java.io.*;
+import java.net.*;
+public class TCPHClient {
+public static void main(String[] args) throws Exception {
+// Step 1: Create socket to connect to server
+Socket s = new Socket("localhost", 9876);
+System.out.println("Connected to TCP Server.");
+// Step 2: Create input and output streams
+DataInputStream dis = new DataInputStream(s.getInputStream());
+DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+// Step 3: Send message to server
+String msg = "Hello TCP Server";
+System.out.println("Sending: " + msg);
+dos.writeUTF(msg);
+// Step 4: Receive reply from server
+String reply = dis.readUTF();
+System.out.println("Server says: " + reply);
+// Step 5: Close everything
+dis.close();
+dos.close();
+s.close();
+System.out.println("Client closed.");
+}
+} 
+Server:
+import java.io.*;
+import java.net.*;
+public class TCPHServer {
+public static void main(String[] args) throws Exception {
+// Step 1: Create a server socket on port 9876
+ServerSocket ss = new ServerSocket(9876);
+System.out.println("TCP Server running... Waiting for client...");
+// Step 2: Wait for client connection
+Socket s = ss.accept();
+System.out.println("Client connected.");
+// Step 3: Create input and output streams
+DataInputStream dis = new DataInputStream(s.getInputStream());
+DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+// Step 4: Receive message from client
+String msg = dis.readUTF();
+System.out.println("Received: " + msg);
+// Step 5: Send reply to client
+String reply = "Hello TCP Client";
+dos.writeUTF(reply);
+// Step 6: Close everything
+dis.close();
+dos.close();
+s.close();
+ss.close();
+System.out.println("Server closed.");
+}
+}

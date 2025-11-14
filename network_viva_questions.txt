@@ -1,0 +1,227 @@
+========================================
+NETWORK PROGRAMMING - VIVA QUESTIONS WITH ANSWERS
+========================================
+
+=== SUBNETTING & SUBNET MASKS ===
+
+1. Q: What is subnetting and why is it important?
+   A: Subnetting is dividing a large network into smaller sub-networks. It's important for efficient IP address utilization, reducing broadcast traffic, improving security, and better network management.
+
+2. Q: What is the difference between classful and classless addressing?
+   A: Classful uses fixed network portions (Class A/B/C with /8, /16, /24). Classless (CIDR) allows flexible network portions using variable-length subnet masks.
+
+3. Q: How do you calculate the number of hosts in a subnet?
+   A: Formula: 2^n - 2, where n = number of host bits. Subtract 2 for network and broadcast addresses. Example: /26 has 6 host bits = 2^6 - 2 = 62 usable hosts.
+
+4. Q: What is a subnet mask and how does it work?
+   A: A 32-bit number that separates IP address into network and host portions. Binary 1s represent network bits, 0s represent host bits. Example: 255.255.255.0 = 11111111.11111111.11111111.00000000
+
+5. Q: What is CIDR notation? Explain 192.168.1.0/24.
+   A: CIDR (Classless Inter-Domain Routing) uses /n notation where n = number of network bits. 192.168.1.0/24 means first 24 bits are network, last 8 bits are host (256 addresses).
+
+6. Q: What is the difference between network address and broadcast address?
+   A: Network address has all host bits set to 0 (identifies the network). Broadcast address has all host bits set to 1 (sends to all hosts in network).
+
+7. Q: How many subnets can you create from a /24 network if you use a /26 mask?
+   A: 2^2 = 4 subnets (borrowing 2 bits from host portion).
+
+8. Q: What is VLSM (Variable Length Subnet Masking)?
+   A: VLSM allows using different subnet masks within the same network, enabling efficient IP allocation based on subnet size requirements.
+
+9. Q: What are the default subnet masks for Class A, B, and C networks?
+   A: Class A: 255.0.0.0 (/8), Class B: 255.255.0.0 (/16), Class C: 255.255.255.0 (/24)
+
+10. Q: How do you perform bitwise AND operation for subnet calculation?
+    A: AND the IP address with subnet mask bit-by-bit. 1 AND 1 = 1, all others = 0. Result gives network address.
+
+=== TCP SOCKET PROGRAMMING ===
+
+1. Q: What is a socket? Explain socket programming.
+   A: A socket is an endpoint for network communication. Socket programming uses APIs to create network connections between processes using IP address and port number.
+
+2. Q: What is the difference between TCP and UDP?
+   A: TCP: Connection-oriented, reliable, ordered delivery, error checking, slower. UDP: Connectionless, unreliable, no ordering, faster, less overhead.
+
+3. Q: Explain the TCP three-way handshake process.
+   A: Step 1: Client sends SYN. Step 2: Server responds with SYN-ACK. Step 3: Client sends ACK. Connection established.
+
+4. Q: What are the main socket API functions used in TCP?
+   A: Server: socket(), bind(), listen(), accept(), recv(), send(), close(). Client: socket(), connect(), send(), recv(), close().
+
+5. Q: What is the difference between connection-oriented and connectionless protocols?
+   A: Connection-oriented (TCP) establishes connection before data transfer, ensures reliability. Connectionless (UDP) sends data without connection, no delivery guarantee.
+
+6. Q: What is the purpose of bind() function in socket programming?
+   A: Binds socket to specific IP address and port number, allowing server to listen on that address/port for incoming connections.
+
+7. Q: What is the difference between listen() and accept() functions?
+   A: listen() puts socket in passive mode to wait for connections and sets queue size. accept() actually accepts incoming connection and creates new socket for communication.
+
+8. Q: What happens when you call connect() on a client socket?
+   A: Initiates TCP three-way handshake with server. Client sends SYN packet to server's IP and port, establishing connection.
+
+9. Q: How do you handle multiple clients in TCP server?
+   A: Using multi-threading (one thread per client), forking processes, or multiplexing with select()/poll()/epoll().
+
+10. Q: What is the purpose of close() or shutdown() in socket programming?
+    A: close() terminates socket and frees resources. shutdown() allows partial closure (read/write/both) while keeping socket descriptor active.
+
+=== TCP CLIENT-SERVER COMMUNICATION ===
+
+1. Q: Explain the sequence of socket calls in a TCP server.
+   A: socket() → bind() → listen() → accept() → recv()/send() → close()
+
+2. Q: Explain the sequence of socket calls in a TCP client.
+   A: socket() → connect() → send()/recv() → close()
+
+3. Q: What is the purpose of listen() backlog parameter?
+   A: Defines maximum length of queue for pending connections. If queue is full, client connection attempts are refused.
+
+4. Q: What happens if server crashes while client is connected?
+   A: Client will get error on next send()/recv() operation. Connection breaks and socket becomes invalid.
+
+5. Q: How does TCP ensure reliable data transfer?
+   A: Through acknowledgments, sequence numbers, checksums, retransmission of lost packets, and flow control.
+
+6. Q: What is the difference between send() and write()?
+   A: send() is socket-specific with flags parameter for options. write() is generic file descriptor operation. send() is preferred for sockets.
+
+7. Q: What port numbers are used for well-known services?
+   A: 0-1023: Well-known ports (HTTP:80, HTTPS:443, FTP:21, SSH:22, Telnet:23)
+
+8. Q: Can multiple sockets bind to the same port?
+   A: No, typically only one socket per port (unless using SO_REUSEADDR or different IP addresses).
+
+9. Q: What is the purpose of SO_REUSEADDR socket option?
+   A: Allows socket to bind to port in TIME_WAIT state, useful when restarting server immediately after shutdown.
+
+10. Q: How do you implement timeout in socket operations?
+    A: Using setsockopt() with SO_RCVTIMEO and SO_SNDTIMEO, or using select()/poll() with timeout parameter.
+
+=== UDP SOCKET PROGRAMMING ===
+
+1. Q: What are the main functions used in UDP socket programming?
+   A: socket(), bind(), sendto(), recvfrom(), close(). No connect(), listen(), or accept() needed.
+
+2. Q: Why doesn't UDP use connect() function?
+   A: UDP is connectionless. However, connect() can be used optionally to set default destination address.
+
+3. Q: What is the difference between send() and sendto()?
+   A: send() is for connected sockets (TCP or connected UDP). sendto() includes destination address, used for unconnected UDP.
+
+4. Q: What are the advantages of UDP over TCP?
+   A: Lower overhead, faster transmission, no connection setup, suitable for real-time applications (video streaming, gaming, VoIP).
+
+5. Q: What are the disadvantages of UDP?
+   A: No reliability guarantee, no ordering, no congestion control, packets may be lost or duplicated.
+
+6. Q: How do you implement reliability in UDP?
+   A: Application-level acknowledgments, sequence numbers, retransmission timers, checksums (though UDP has basic checksum).
+
+7. Q: What is the maximum size of UDP datagram?
+   A: Theoretically 65,535 bytes (16-bit length field), practically limited by MTU, typically 1500 bytes for Ethernet.
+
+8. Q: When should you use UDP instead of TCP?
+   A: Real-time applications where speed is critical and some data loss is acceptable (streaming, gaming, DNS queries, DHCP).
+
+9. Q: Does UDP guarantee packet ordering?
+   A: No, UDP doesn't guarantee ordering. Packets may arrive out of order.
+
+10. Q: What is UDP hole punching?
+    A: Technique to establish UDP connection between hosts behind NAT by having both send packets simultaneously.
+
+=== FILE TRANSFER ===
+
+1. Q: How do you implement file transfer using TCP sockets?
+   A: Open file, read chunks in buffer, send() buffer in loop, close file. Receiver recv() in loop and write to file.
+
+2. Q: Why is TCP preferred over UDP for file transfer?
+   A: TCP ensures reliable, ordered delivery of all file data. UDP may lose packets, corrupting the file.
+
+3. Q: How do you handle large files in socket programming?
+   A: Read and send in chunks (buffer), not loading entire file into memory. Use while loop until EOF.
+
+4. Q: What information should be sent before file transfer?
+   A: Filename, file size, checksum/hash for verification, metadata.
+
+5. Q: How do you detect end of file transmission?
+   A: Send file size first, count received bytes. Or send special end-of-file marker. recv() returns 0 at end.
+
+6. Q: What is the typical buffer size for file transfer?
+   A: Common sizes: 1024, 4096, or 8192 bytes. Depends on network conditions and memory constraints.
+
+7. Q: How do you ensure file integrity after transfer?
+   A: Calculate checksum/hash (MD5, SHA) at sender, send it, receiver calculates and compares.
+
+8. Q: What happens if connection breaks during file transfer?
+   A: Transfer fails. Need to implement resume capability by tracking bytes sent/received and restarting from last position.
+
+9. Q: How do you handle binary files in socket programming?
+   A: Open file in binary mode ("rb"/"wb"), treat data as byte stream, send raw bytes without text encoding.
+
+10. Q: What is the difference between text and binary mode file transfer?
+    A: Text mode may perform line-ending conversions (\n, \r\n). Binary mode preserves exact byte sequence.
+
+=== DNS LOOKUP ===
+
+1. Q: What is DNS and its purpose?
+   A: Domain Name System translates human-readable domain names (google.com) to IP addresses (142.250.183.46) and vice versa.
+
+2. Q: What functions are used for DNS lookup in C?
+   A: gethostbyname() (deprecated), getaddrinfo() (modern), getnameinfo() for reverse lookup.
+
+3. Q: What is forward DNS lookup?
+   A: Converting domain name to IP address (google.com → 142.250.183.46).
+
+4. Q: What is reverse DNS lookup?
+   A: Converting IP address to domain name (142.250.183.46 → google.com).
+
+5. Q: What is the difference between gethostbyname() and getaddrinfo()?
+   A: gethostbyname() is older, IPv4 only, not thread-safe. getaddrinfo() supports IPv4/IPv6, thread-safe, more flexible.
+
+6. Q: What port does DNS use?
+   A: Port 53, uses both UDP (queries) and TCP (zone transfers, large responses).
+
+7. Q: What are DNS record types?
+   A: A (IPv4 address), AAAA (IPv6 address), CNAME (alias), MX (mail server), NS (name server), PTR (reverse lookup), TXT (text).
+
+8. Q: What is /etc/hosts file?
+   A: Local file containing static hostname-to-IP mappings, checked before DNS query.
+
+9. Q: How does DNS resolution work?
+   A: Client queries local DNS server → recursive lookup through root servers → TLD servers → authoritative name servers → returns IP.
+
+10. Q: What is DNS caching?
+    A: Storing DNS query results temporarily (TTL period) to reduce lookup time and network traffic.
+
+=== GENERAL NETWORKING CONCEPTS ===
+
+1. Q: What is the difference between localhost and 127.0.0.1?
+   A: Both refer to local machine. localhost is hostname, 127.0.0.1 is loopback IP address. Functionally identical.
+
+2. Q: What is a port number and its range?
+   A: 16-bit number (0-65535) identifying specific process/service. 0-1023: well-known, 1024-49151: registered, 49152-65535: dynamic.
+
+3. Q: What is byte ordering and why is it important?
+   A: Different systems store multi-byte numbers differently (big-endian vs little-endian). Use htons(), htonl(), ntohs(), ntohl() for network byte order.
+
+4. Q: What is the OSI model? Name the layers.
+   A: 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application.
+
+5. Q: What layer does TCP/UDP operate at?
+   A: Transport Layer (Layer 4) of OSI model.
+
+6. Q: What is the difference between IPv4 and IPv6?
+   A: IPv4: 32-bit address (4.3 billion addresses), dotted decimal. IPv6: 128-bit address (340 undecillion addresses), hexadecimal notation.
+
+7. Q: What is socket address structure (sockaddr)?
+   A: Structure containing address family, port number, and IP address. sockaddr_in for IPv4, sockaddr_in6 for IPv6.
+
+8. Q: What is the purpose of htons() and ntohs()?
+   A: htons(): Host to Network Short (convert 16-bit port). ntohs(): Network to Host Short. Handles endianness.
+
+9. Q: What is blocking vs non-blocking socket?
+   A: Blocking: operations wait until complete. Non-blocking: operations return immediately with status. Use fcntl() or O_NONBLOCK.
+
+10. Q: What is multiplexing in socket programming?
+    A: Handling multiple sockets simultaneously using select(), poll(), or epoll() instead of multiple threads.

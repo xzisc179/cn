@@ -1,0 +1,130 @@
+A. PROCEDURE (Step-by-Step in Packet Tracer)
+1. Create the Network Topology
+
+Open Cisco Packet Tracer.
+
+Add devices:
+
+1 Server
+
+1 Switch
+
+2–4 PCs (Clients)
+
+Connect all devices using Copper Straight-Through cables.
+
+
+2. Configure DHCP on the Server
+Step 1: Assign Static IP to Server
+
+Click Server → Desktop → IP Configuration.
+
+Set:
+
+IP Address: 192.168.1.10
+
+Subnet Mask: 255.255.255.0
+
+Default Gateway: 192.168.1.1 (you can choose any router IP; if no router, leave blank)
+
+Note: DHCP server must always have a static IP
+
+Step 2: Enable DHCP Service
+
+Go to Services → DHCP on the Server.
+
+Turn DHCP Service → ON.
+
+Create a new DHCP Pool:
+
+Pool Name: LAN1
+
+Default Gateway: 192.168.1.1
+
+DNS Server: 192.168.1.10 (or 8.8.8.8)
+
+Start IP Address: 192.168.1.20
+
+Maximum Users: 100
+
+Subnet Mask: 255.255.255.0
+
+Click Save.
+
+Now your DHCP server is ready
+
+
+3. Configure Client PCs to Receive IP Automatically
+For each PC:
+
+Click PC → Desktop → IP Configuration.
+
+Select DHCP option instead of Static.
+
+The PC should automatically receive an IP such as:
+
+IP Address: 192.168.1.x (from DHCP server)
+
+Gateway: 192.168.1.1
+
+DNS Server: 192.168.1.10
+
+
+Verify DHCP Operation
+Check on client PC:
+
+IP address should appear automatically.
+
+Try ping test:
+
+PC > Command Prompt
+ping 192.168.1.10    (Ping Server)
+ping 192.168.1.1     (Ping Gateway)
+
+If pings are successful → DHCP is working correctly.
+
+
+
+ORAL 
+
+
+B. VIVA QUESTIONS & ANSWERS (Oral Format)
+1. What is DHCP?
+
+DHCP stands for Dynamic Host Configuration Protocol. It automatically assigns IP addresses and other network parameters to client devices.
+
+2. Why do we use DHCP?
+
+We use DHCP to reduce manual configuration, avoid IP conflicts, and simplify IP management.
+
+3. What are the main components of a DHCP message?
+
+DHCP Discover, Offer, Request, and Acknowledgement (DORA).
+
+4. Why must the DHCP server have a static IP?
+
+Because clients need a fixed and known server address to request IP configuration.
+
+5. What is a DHCP pool?
+
+A DHCP pool is a set of IP addresses that the server can assign to clients dynamically.
+
+6. What is the default gateway in DHCP?
+
+The gateway is the router address that allows the client to access other networks.
+
+7. What happens if two DHCP servers exist in the same network?
+
+Clients may receive IP from either server, which can result in incorrect configuration if not planned.
+
+8. What is lease time?
+
+Lease time is the duration for which a client can use the assigned IP.
+
+9. How do clients request an IP address in DHCP?
+
+Clients broadcast a DHCP Discover message on the network.
+
+10. What is the difference between static and dynamic IP?
+
+Static IP is manually configured and fixed. Dynamic IP is assigned automatically by DHCP

@@ -1,0 +1,243 @@
+✅ 1. VLAN — Virtual Local Area Network
+
+Full Form: Virtual Local Area Network
+Layer: Layer 2 (Data Link Layer)
+
+Explanation:
+
+A VLAN is a logical (virtual) segmentation of a physical network.
+Even if devices are connected to the same switch, VLAN divides them into separate broadcast domains.
+
+Why used?
+
+Reduces broadcast traffic
+
+Improves security
+
+Allows grouping based on function, not location
+
+Where it appears in your manual:
+
+In the VLAN and VTP experiments (Lab Manual Snippet) 
+
+cn manual
+
+
+Shows how each VLAN gets its own broadcast domain.
+
+✅ 2. VTP — VLAN Trunking Protocol
+
+Full Form: VLAN Trunking Protocol
+Layer: Layer 2
+
+Explanation:
+
+VTP is a Cisco proprietary protocol used to manage, add, modify, or delete VLANs across multiple switches automatically.
+
+Why used?
+
+Centralized VLAN management
+
+Reduces configuration errors
+
+Automatically propagates VLAN information to all switches in the VTP domain
+
+Modes:
+
+Server Mode: Create/modify VLANs
+
+Client Mode: Cannot modify; only receives VLAN information
+
+Transparent Mode: Forwards VTP messages but does not participate
+
+Where it appears:
+
+VTP experiment demonstration in the manual (switch diagram) 
+
+cn manual
+
+.
+
+✅ 3. STP — Spanning Tree Protocol
+
+Full Form: Spanning Tree Protocol
+Layer: Layer 2 (Switching)
+
+Explanation:
+
+STP prevents loops in a network that has multiple switches interconnected.
+Switching loops can cause broadcast storms and MAC table instability.
+
+How STP works:
+
+Selects a Root Bridge
+
+Calculates the shortest path
+
+Blocks redundant ports to avoid loops
+
+Reopens ports if needed (link failure)
+
+Why used?
+
+Prevents network loops
+
+Provides redundancy without causing broadcast storms
+
+Where it appears:
+
+The manual’s switching experiment includes STP concepts (trunks, loops, VLANs) 
+
+cn manual
+
+.
+
+✅ 4. TCP — Transmission Control Protocol
+
+Full Form: Transmission Control Protocol
+Layer: Transport Layer (Layer 4)
+
+Explanation:
+
+TCP is a reliable, connection-oriented protocol used for guaranteed data delivery.
+
+Key Features:
+
+Connection established before communication
+
+Uses 3-way handshake (SYN → SYN-ACK → ACK)
+
+Provides reliability (ACK, retransmission)
+
+Ensures ordered data delivery
+
+Why used?
+
+When data accuracy is essential: file transfer, banking, login systems.
+
+Where it appears:
+
+Manual mentions three-way handshake (TCP process) .
+
+✅ 5. HTTP — Hypertext Transfer Protocol
+
+Full Form: Hypertext Transfer Protocol
+Layer: Application Layer
+
+Explanation:
+
+HTTP is used to transfer web pages between client and server.
+Operates on port 80.
+
+Characteristics:
+
+Stateless
+
+Uses methods like GET, POST, PUT, DELETE
+
+Works over TCP
+
+Where it appears:
+
+In the Wireshark and packet analysis labs (HTTP packets on port 80).
+
+✅ 6. DNS — Domain Name System
+
+Full Form: Domain Name System
+Layer: Application Layer
+
+Explanation:
+
+DNS converts domain names to IP addresses (example.com → 142.250.71.78).
+
+Why needed?
+
+Humans remember names, computers use IP.
+
+Types of records:
+
+A Record: domain → IPv4
+
+AAAA: domain → IPv6
+
+PTR: reverse lookup
+
+MX: mail server
+
+Where it appears:
+
+DNS lookup and analysis practical in the manual.
+
+✅ 7. DHCP — Dynamic Host Configuration Protocol
+
+Full Form: Dynamic Host Configuration Protocol
+Layer: Application Layer (uses UDP 67/68)
+
+Explanation:
+
+Automatically assigns IP addresses and network configuration to devices.
+
+Process (DORA):
+
+Discover
+
+Offer
+
+Request
+
+Acknowledge
+
+Why used?
+
+Avoids manual IP configuration
+
+Prevents conflicts
+
+Where it appears:
+
+DHCP configuration practical in the manual.
+
+✅ 8. FTP — File Transfer Protocol
+
+Full Form: File Transfer Protocol
+Layer: Application Layer
+Ports: 20 (data), 21 (control)
+
+Explanation:
+
+Protocol for transferring files between client and server.
+
+Modes:
+
+Active
+
+Passive
+
+Where it appears:
+
+Manual mentions FTP when explaining server functionalities.
+
+✅ 9. UDP — User Datagram Protocol
+
+Full Form: User Datagram Protocol
+Layer: Transport Layer
+
+Explanation:
+
+Connectionless, fast protocol without guarantee of delivery.
+
+Used for:
+
+Video streaming
+
+VoIP
+
+DNS queries
+
+Why?
+
+Speed is more important than reliability.
+
+Where it appears:
+
+UDP used in DNS + various application-layer examples in the manual

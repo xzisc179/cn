@@ -1,0 +1,83 @@
+﻿UDPServer.java(receiver)
+import java.net.*;
+import java.io.*;
+
+
+public class UDPServer {
+    public static void main(String[] args) throws Exception {
+        DatagramSocket socket = new DatagramSocket(9876);
+        System.out.println("UDP Server running... Waiting for file...");
+
+
+        byte[] receiveBuffer = new byte[1024];
+        FileOutputStream fos = new FileOutputStream("received_file.txt");
+
+
+        while (true) {
+            DatagramPacket packet = new DatagramPacket(receiveBuffer, receiveBuffer.length);
+            socket.receive(packet);
+
+
+            String data = new String(packet.getData(), 0, packet.getLength());
+
+
+            // End of file signal
+            if (data.equals("EOF")) {
+                System.out.println("File received successfully!");
+                break;
+            }
+
+
+            // Write received data to file
+            fos.write(packet.getData(), 0, packet.getLength());
+        }
+
+
+        fos.close();
+        socket.close();
+        System.out.println("Server closed.");
+    }
+}
+
+
+
+
+UDPClient.java(sender):
+import java.net.*;
+import java.io.*;
+
+
+public class UDPClient {
+    public static void main(String[] args) throws Exception {
+        DatagramSocket socket = new DatagramSocket();
+        InetAddress serverIP = InetAddress.getByName("localhost"); // or server IP
+
+
+        FileInputStream fis = new FileInputStream("example.txt"); // File to send
+        byte[] sendBuffer = new byte[1024];
+        int bytesRead;
+
+
+        System.out.println("Sending file to server...");
+
+
+        while ((bytesRead = fis.read(sendBuffer)) != -1) {
+            DatagramPacket sendPacket = new DatagramPacket(sendBuffer, bytesRead, serverIP, 9876);
+            socket.send(sendPacket);
+            Thread.sleep(10); // slight delay for reliability
+        }
+
+
+        // Send End Of File signal
+        byte[] endMsg = "EOF".getBytes();
+        DatagramPacket endPacket = new DatagramPacket(endMsg, endMsg.length, serverIP, 9876);
+        socket.send(endPacket);
+
+
+        System.out.println("File sent successfully.");
+
+
+        fis.close();
+        socket.close();
+    }
+}

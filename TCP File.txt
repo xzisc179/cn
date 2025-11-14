@@ -1,0 +1,89 @@
+﻿TCPServer(receive)
+import java.io.*;
+import java.net.*;
+
+
+public class TCPServer {
+    public static void main(String[] args) {
+        try {
+            // Step 1: Create server socket and wait for connection
+            ServerSocket ss = new ServerSocket(5678);
+            System.out.println("Server is running... Waiting for client connection...");
+
+
+            Socket s = ss.accept();
+            System.out.println("Client connected.");
+
+
+            // Step 2: Receive file data and save it
+            InputStream is = s.getInputStream();
+            FileOutputStream fos = new FileOutputStream("received_file.txt");
+
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = is.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+
+
+            System.out.println("File received and saved as 'received_file.txt'.");
+
+
+            // Step 3: Close connections
+            fos.close();
+            is.close();
+            s.close();
+            ss.close();
+
+
+            System.out.println("Server closed.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+TCPClient:
+import java.io.*;
+import java.net.*;
+
+
+public class TCPClient {
+    public static void main(String[] args) {
+        try {
+            // Step 1: Connect to server
+            Socket s = new Socket("localhost", 5678);
+            System.out.println("Connected to server.");
+
+
+            // Step 2: Prepare file to send
+            File file = new File("text.txt");
+            FileInputStream fin = new FileInputStream(file);
+            OutputStream os = s.getOutputStream();
+
+
+            // Step 3: Send file data in chunks
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fin.read(buffer)) != -1) {
+                os.write(buffer, 0, bytesRead);
+            }
+
+
+            // Step 4: Flush and close connections
+            os.flush();
+            System.out.println("File sent successfully.");
+
+
+            fin.close();
+            os.close();
+            s.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

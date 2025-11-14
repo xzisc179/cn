@@ -1,0 +1,27 @@
+﻿Client:
+import java.net.*;
+public class UDPclient {
+public static void main(String[] args) throws Exception {
+DatagramSocket s = new DatagramSocket();
+String msg = "Hello UDP Server";
+byte[] buf = msg.getBytes();
+InetAddress ip = InetAddress.getByName("localhost");
+DatagramPacket p = new DatagramPacket(buf, buf.length, ip, 9876);
+System.out.println("Sending: " + msg);
+s.send(p);
+s.close();
+}
+} 
+Server
+import java.net.*;
+public class UDPserver {
+public static void main(String[] args) throws Exception {
+DatagramSocket s = new DatagramSocket(9876);
+byte[] buf = new byte[1024];
+DatagramPacket p = new DatagramPacket(buf, buf.length);
+System.out.println("UDP Server running...");
+s.receive(p);
+System.out.println("Received: " + new String(p.getData(), 0, p.getLength()));
+s.close();
+}
+}
