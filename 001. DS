@@ -1,0 +1,1225 @@
+https://drive.google.com/drive/folders/1urcL7g8fKsrSrKpb97xghCQopKu_OL21
+
+
+
+
+
+
+Data Science Lab Viva – Important Oral + Practical Questions with Short Detailed Answers
+
+Based on uploaded Data Science lab manuals and assignments. fileciteturn0file0L1-L20
+
+
+---
+
+EXPERIMENT 1 – DATA WRANGLING I
+
+1. What is Data Wrangling?
+
+Data wrangling is the process of cleaning, transforming, and organizing raw data into useful format.
+
+It improves data quality before analysis.
+
+
+2. What is Data Preprocessing?
+
+Data preprocessing means preparing raw data for machine learning.
+
+It includes:
+
+Handling missing values
+
+Removing outliers
+
+Encoding categorical data
+
+Normalization
+
+
+
+3. Why is data preprocessing important?
+
+Real-world data is incomplete and noisy.
+
+Preprocessing increases model accuracy and efficiency.
+
+
+4. What is a Dataset?
+
+Dataset is a collection of related data.
+
+It is usually arranged in rows and columns.
+
+Example: Iris dataset.
+
+
+5. What is Pandas?
+
+Pandas is a Python library used for data manipulation and analysis.
+
+Main data structures:
+
+Series
+
+DataFrame
+
+
+
+6. What is NumPy?
+
+NumPy is a Python library for numerical computing.
+
+It supports arrays and mathematical operations.
+
+
+7. What is Scikit-Learn?
+
+Scikit-learn is a machine learning library.
+
+Used for:
+
+Classification
+
+Regression
+
+Clustering
+
+Preprocessing
+
+
+
+8. What is a DataFrame?
+
+DataFrame is a 2D table-like structure in Pandas.
+
+Contains rows and columns.
+
+
+9. Difference between Series and DataFrame?
+
+Series:
+
+One-dimensional
+
+
+DataFrame:
+
+Two-dimensional
+
+Multiple columns
+
+
+
+10. What is CSV file?
+
+CSV means Comma Separated Values.
+
+Stores tabular data in text format.
+
+
+11. Which function is used to load CSV file?
+
+pd.read_csv()
+
+12. What does head() function do?
+
+df.head()
+
+Displays first 5 rows of dataset.
+
+
+13. What does tail() function do?
+
+Displays last 5 rows.
+
+
+14. What is use of shape?
+
+df.shape
+
+Returns number of rows and columns.
+
+
+15. What does dtypes show?
+
+Shows datatype of each column.
+
+
+16. What is missing value?
+
+Missing value means data is absent.
+
+Represented as:
+
+NaN
+
+None
+
+
+
+17. Functions used to detect missing values?
+
+isnull()
+
+isna()
+
+notnull()
+
+
+18. Difference between isnull() and notnull()?
+
+isnull():
+
+True for missing values
+
+
+notnull():
+
+True for available values
+
+
+
+19. How to count missing values?
+
+df.isnull().sum()
+
+20. Methods to handle missing values?
+
+Drop rows
+
+Replace with mean
+
+Replace with median
+
+Replace with mode
+
+Replace with constant value
+
+
+21. Why mean is not preferred with outliers?
+
+Mean gets affected heavily by outliers.
+
+Median is more robust.
+
+
+22. What is Data Normalization?
+
+Scaling data into fixed range.
+
+Usually between 0 and 1.
+
+
+23. Why normalization is needed?
+
+Features get equal importance.
+
+Improves ML model performance.
+
+
+24. What is Min-Max Normalization?
+
+Converts values into range 0 to 1.
+
+
+Formula: genui{"math_block_widget_always_prefetch_v2":{"content":"x' = \frac{x-x_{min}}{x_{max}-x_{min}}"}}
+
+25. What is Label Encoding?
+
+Converts categorical labels into numbers.
+
+Example:
+
+Setosa → 0
+
+Versicolor → 1
+
+Virginica → 2
+
+
+
+26. Limitation of Label Encoding?
+
+Model may assume order exists between categories.
+
+
+27. What is categorical data?
+
+Data representing categories.
+
+Example:
+
+Gender
+
+Color
+
+City
+
+
+
+28. Difference between qualitative and quantitative data?
+
+Qualitative:
+
+Non-numeric
+
+
+Quantitative:
+
+Numeric
+
+
+
+29. What is Iris dataset?
+
+Famous dataset used for classification.
+
+Contains 150 flower samples.
+
+3 species:
+
+Setosa
+
+Versicolor
+
+Virginica
+
+
+
+30. Why Iris dataset is popular?
+
+Small
+
+Clean
+
+Good for beginners
+
+
+31. What is feature in dataset?
+
+Input variable.
+
+Example: Sepal length.
+
+
+32. What is target variable?
+
+Output variable to predict.
+
+Example: Species.
+
+
+33. Difference between loc and iloc?
+
+loc:
+
+Label based indexing
+
+
+iloc:
+
+Integer position based indexing
+
+
+
+34. What does describe() function do?
+
+Gives statistical summary.
+
+Includes:
+
+Mean
+
+Std
+
+Min
+
+Max
+
+
+
+35. What is data cleaning?
+
+Removing inconsistencies and errors from data.
+
+
+36. Practical Question – Why did you use Pandas?
+
+Easy data handling.
+
+Efficient preprocessing.
+
+Supports CSV and DataFrames.
+
+
+37. Practical Question – Why did you use Scikit-learn?
+
+Provides preprocessing and ML algorithms.
+
+
+38. Practical Question – Explain your code flow.
+
+Import libraries
+
+Load dataset
+
+Inspect data
+
+Handle missing values
+
+Normalize data
+
+Encode categorical variables
+
+Train/analyze model
+
+
+
+---
+
+EXPERIMENT 2 – DATA WRANGLING II
+
+39. What is an Outlier?
+
+Data value far away from other observations.
+
+
+40. Causes of outliers?
+
+Human error
+
+Measurement error
+
+Natural variation
+
+
+41. Why are outliers harmful?
+
+Reduce model accuracy.
+
+Affect mean and standard deviation.
+
+
+42. Methods to detect outliers?
+
+Boxplot
+
+Z-score
+
+IQR method
+
+Scatter plot
+
+
+43. What is Boxplot?
+
+Graphical method to detect outliers.
+
+Uses quartiles.
+
+
+44. What is IQR?
+
+Inter Quartile Range.
+
+
+Formula: genui{"math_block_widget_always_prefetch_v2":{"content":"IQR = Q3 - Q1"}}
+
+45. Outlier detection formula using IQR?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"x < Q1 - 1.5(IQR) \; or \; x > Q3 + 1.5(IQR)"}}
+
+46. Methods to handle outliers?
+
+Remove outliers
+
+Replace with mean/median
+
+Capping
+
+Transformation
+
+
+47. What is Data Transformation?
+
+Converting data into suitable format.
+
+
+48. What is skewness?
+
+Measure of asymmetry in data distribution.
+
+
+49. What is Normal Distribution?
+
+Bell-shaped symmetric distribution.
+
+
+50. Why is normalization used in transformation?
+
+Reduces skewness.
+
+Makes data consistent.
+
+
+51. Difference between normalization and standardization?
+
+Normalization:
+
+Range 0 to 1
+
+
+Standardization:
+
+Mean = 0
+
+Std = 1
+
+
+
+52. What is Z-score?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"z = \frac{x-\mu}{\sigma}"}}
+
+53. Why median is preferred for skewed data?
+
+Median is less affected by extreme values.
+
+
+54. What is ETL?
+
+Extract
+
+Transform
+
+Load
+
+
+55. Practical Question – Why did you use boxplot?
+
+To visually detect outliers.
+
+
+56. Practical Question – Why use fillna()?
+
+To replace missing values.
+
+
+57. Difference between dropna() and fillna()?
+
+dropna(): removes missing rows/columns
+
+fillna(): replaces missing values
+
+
+58. What is inplace=True?
+
+Makes changes permanent in dataset.
+
+
+
+---
+
+LOGISTIC REGRESSION
+
+Based on uploaded practical file. fileciteturn0file1L1-L1
+
+59. What is Logistic Regression?
+
+Supervised classification algorithm.
+
+Used for binary classification.
+
+
+60. Why is it called regression?
+
+Uses regression equation internally.
+
+Output converted into probability.
+
+
+61. What is Sigmoid Function?
+
+Converts output into probability between 0 and 1.
+
+
+Formula: genui{"math_block_widget_always_prefetch_v2":{"content":"\sigma(x)=\frac{1}{1+e^{-x}}"}}
+
+62. Output range of sigmoid function?
+
+Between 0 and 1.
+
+
+63. Applications of Logistic Regression?
+
+Spam detection
+
+Disease prediction
+
+Ad click prediction
+
+
+64. Difference between Linear and Logistic Regression?
+
+Linear:
+
+Predicts continuous values
+
+
+Logistic:
+
+Predicts categories/classes
+
+
+
+65. What is confusion matrix?
+
+Table showing model prediction performance.
+
+
+66. Components of confusion matrix?
+
+TP
+
+TN
+
+FP
+
+FN
+
+
+67. What is Accuracy?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Accuracy = \frac{TP+TN}{TP+TN+FP+FN}"}}
+
+68. What is Precision?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Precision = \frac{TP}{TP+FP}"}}
+
+69. What is Recall?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Recall = \frac{TP}{TP+FN}"}}
+
+70. What is Feature Scaling?
+
+Bringing features to common scale.
+
+
+71. Why StandardScaler is used?
+
+Standardizes data.
+
+Improves logistic regression performance.
+
+
+72. What is train_test_split()?
+
+Splits data into training and testing sets.
+
+
+73. Why do we split dataset?
+
+To evaluate model performance on unseen data.
+
+
+74. What is overfitting?
+
+Model performs well on training data but poorly on testing data.
+
+
+75. What is underfitting?
+
+Model fails to learn patterns properly.
+
+
+76. Practical Question – Why scaling is important in logistic regression?
+
+Features with large values dominate smaller features.
+
+
+
+---
+
+NAIVE BAYES
+
+Based on uploaded file DS6. fileciteturn0file2L1-L1
+
+77. What is Naive Bayes?
+
+Probabilistic classification algorithm.
+
+Based on Bayes theorem.
+
+
+78. Why is it called “Naive”?
+
+Assumes all features are independent.
+
+
+79. Bayes theorem?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"P(A|B)=\frac{P(B|A)P(A)}{P(B)}"}}
+
+80. Advantages of Naive Bayes?
+
+Fast
+
+Simple
+
+Works well for text classification
+
+
+81. Applications of Naive Bayes?
+
+Spam filtering
+
+Sentiment analysis
+
+Document classification
+
+
+82. Difference between Logistic Regression and Naive Bayes?
+
+Logistic Regression:
+
+Discriminative model
+
+
+Naive Bayes:
+
+Probabilistic generative model
+
+
+
+83. What is prior probability?
+
+Probability before observing evidence.
+
+
+84. What is posterior probability?
+
+Probability after observing evidence.
+
+
+85. Why Iris dataset used in Naive Bayes practical?
+
+Easy multiclass classification dataset.
+
+
+
+---
+
+DATA VISUALIZATION
+
+Based on Assignment 10 practical. fileciteturn0file3L1-L20
+
+86. What is Data Visualization?
+
+Representing data graphically.
+
+
+87. Why visualization is important?
+
+Helps understand patterns and trends.
+
+
+88. What is histogram?
+
+Graph showing frequency distribution.
+
+
+89. What is KDE curve?
+
+Smoothed probability density curve.
+
+
+90. What is boxplot?
+
+Visualization for detecting outliers.
+
+
+91. What is Seaborn?
+
+Python visualization library built on matplotlib.
+
+
+92. Difference between matplotlib and seaborn?
+
+Matplotlib:
+
+Basic plotting
+
+
+Seaborn:
+
+Better statistical visualizations
+
+
+
+93. Why use plt.figure()?
+
+Creates figure canvas.
+
+
+94. What is subplot?
+
+Multiple plots in one figure.
+
+
+95. Practical Question – Why did you use histplot()?
+
+To observe data distribution.
+
+
+
+---
+
+TITANIC DATASET PRACTICAL
+
+Based on DS9 practical. fileciteturn0file6L1-L1
+
+96. What is Titanic dataset?
+
+Famous ML dataset for survival prediction.
+
+
+97. What is data cleaning?
+
+Removing errors and missing values.
+
+
+98. Which column had missing values?
+
+Age
+
+Deck
+
+
+99. Why median used for age filling?
+
+Median handles skewed data better.
+
+
+100. What is exploratory data analysis (EDA)?
+
+Initial analysis to understand data.
+
+
+101. What is feature engineering?
+
+Creating useful features from existing data.
+
+
+102. What is correlation?
+
+Relationship between variables.
+
+
+103. Difference between dependent and independent variable?
+
+Independent:
+
+Input
+
+
+Dependent:
+
+Output
+
+
+
+
+---
+
+NLP PRACTICAL
+
+Based on DS7 practical. fileciteturn0file8L1-L1
+
+104. What is NLP?
+
+Natural Language Processing.
+
+Helps computers understand human language.
+
+
+105. What is tokenization?
+
+Splitting text into words or sentences.
+
+
+106. What are stopwords?
+
+Common words with low importance.
+
+Example:
+
+is
+
+the
+
+and
+
+
+
+107. Why remove stopwords?
+
+Reduces unnecessary words.
+
+Improves efficiency.
+
+
+108. What is stemming?
+
+Reducing word to root form.
+
+Example:
+
+playing → play
+
+
+
+109. What is lemmatization?
+
+Converts word into meaningful base form.
+
+
+110. Difference between stemming and lemmatization?
+
+Stemming:
+
+Faster
+
+Less accurate
+
+
+Lemmatization:
+
+More accurate
+
+
+
+111. What is POS tagging?
+
+Assigning grammatical tags.
+
+Example:
+
+noun
+
+verb
+
+
+
+112. What is NLTK?
+
+Python library for NLP.
+
+
+113. Why download punkt package?
+
+Used for tokenization.
+
+
+114. Practical Question – Why use regex?
+
+Pattern matching and text cleaning.
+
+
+
+---
+
+ASSOCIATION RULE & APRIORI
+
+Based on Assignment 4. fileciteturn0file4L1-L20
+
+115. What is Association Rule Mining?
+
+Finds relationships between items.
+
+
+116. Example of association rule?
+
+Bread → Butter
+
+
+117. What is Apriori Algorithm?
+
+Frequent itemset mining algorithm.
+
+
+118. What is support?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Support(A)=\frac{Transactions\ containing\ A}{Total\ Transactions}"}}
+
+119. What is confidence?
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Confidence(A\rightarrow B)=\frac{Support(A\cup B)}{Support(A)}"}}
+
+120. Why Apriori is used?
+
+Market basket analysis.
+
+Product recommendation.
+
+
+121. Limitation of Apriori?
+
+Generates many candidate itemsets.
+
+Computationally expensive.
+
+
+
+---
+
+IMPALA / BIG DATA PRACTICAL
+
+Based on DS11 practical. fileciteturn0file7L1-L1
+
+122. What is Big Data?
+
+Extremely large and complex datasets.
+
+
+123. 5Vs of Big Data?
+
+Volume
+
+Velocity
+
+Variety
+
+Veracity
+
+Value
+
+
+124. What is Impala?
+
+SQL query engine for Hadoop.
+
+
+125. Why Impala used?
+
+Fast SQL queries on big data.
+
+
+126. What is Hadoop?
+
+Framework for distributed storage and processing.
+
+
+127. What is HDFS?
+
+Hadoop Distributed File System.
+
+
+128. What is normalization in this practical?
+
+Scaling values between 0 and 1.
+
+
+129. What is SQL?
+
+Structured Query Language.
+
+
+130. Difference between DELETE and DROP?
+
+DELETE:
+
+Removes rows
+
+
+DROP:
+
+Removes complete table
+
+
+
+
+---
+
+VERY COMMON EXAMINER CROSS QUESTIONS
+
+131. Why Python is preferred in Data Science?
+
+Easy syntax
+
+Huge libraries
+
+Strong community support
+
+
+132. Difference between AI, ML and Data Science?
+
+AI:
+
+Intelligent systems
+
+
+ML:
+
+Learning from data
+
+
+Data Science:
+
+Extracting insights from data
+
+
+
+133. What is Machine Learning?
+
+System learns patterns from data automatically.
+
+
+134. Types of Machine Learning?
+
+Supervised
+
+Unsupervised
+
+Reinforcement
+
+
+135. Difference between supervised and unsupervised learning?
+
+Supervised:
+
+Labeled data
+
+
+Unsupervised:
+
+Unlabeled data
+
+
+
+136. What is classification?
+
+Predicting categories/classes.
+
+
+137. What is regression?
+
+Predicting continuous values.
+
+
+138. What is clustering?
+
+Grouping similar data points.
+
+
+139. What is accuracy of model?
+
+Percentage of correct predictions.
+
+
+140. Why do we use train data and test data separately?
+
+To check generalization ability.
+
+
+141. Difference between model and algorithm?
+
+Algorithm:
+
+Procedure
+
+
+Model:
+
+Trained output of algorithm
+
+
+
+142. What is overfitting solution?
+
+More data
+
+Regularization
+
+Cross-validation
+
+
+143. What is cross-validation?
+
+Technique to evaluate model reliability.
+
+
+144. What is feature selection?
+
+Selecting important input features.
+
+
+145. Why libraries are important?
+
+Reduce coding effort.
+
+Faster implementation.
+
+
+146. What is IDE you used?
+
+Jupyter Notebook / Google Colab.
+
+
+147. Difference between Jupyter and Colab?
+
+Jupyter:
+
+Local execution
+
+
+Colab:
+
+Cloud-based
+
+
+
+148. Why use Google Colab?
+
+Free GPU
+
+No installation needed
+
+Easy sharing
+
+
+149. What is kernel in Jupyter?
+
+Engine executing Python code.
+
+
+150. Final viva answer when examiner asks “What did you learn?”
+
+Learned data preprocessing, cleaning, visualization, normalization, machine learning basics, and practical implementation using Python libraries like Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, and NLTK.
+
+I have prepared a master viva preparation document containing:
+
+150+ important oral questions
+
+Practical implementation questions
+
+Cross questions asked by examiners
+
+Short detailed answers in simple language
+
+Definitions, differences, formulas, applications
+
+Logistic Regression, Naive Bayes, NLP, Apriori, Big Data, Visualization, Data Wrangling, Titanic dataset, Impala, etc.
+
+Important formulas and viva-ready explanations
+
+
+It is based on your uploaded lab manual and assignment/practical files. 
+
+
+
+
+
+https://tinyurl.com/enter55
+
+
+
